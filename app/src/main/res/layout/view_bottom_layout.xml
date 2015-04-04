@@ -1,0 +1,100 @@
+
+<!-- 导航一：适用首页 -->
+
+<com.youlongnet.lulu.ui.widget.TabLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="56dp" >
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/bottom_tab_item_message"
+            android:gravity="center|bottom"
+            android:padding="4dp"
+            android:text="消息"
+            android:textColor="@drawable/bottom_tab_text"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/gb_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/black" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/bottom_tab_item_gift"
+            android:gravity="center|bottom"
+            android:padding="4dp"
+            android:text="礼包"
+            android:textColor="@drawable/bottom_tab_text"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/gb_gift"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/black" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/bottom_tab_item_guid"
+            android:gravity="center|bottom"
+            android:padding="4dp"
+            android:text="公会"
+            android:textColor="@drawable/bottom_tab_text"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/gb_guid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/black" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/bottom_tab_item_my"
+            android:gravity="center|bottom"
+            android:padding="4dp"
+            android:text="我"
+            android:textColor="@drawable/bottom_tab_text"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/gb_my"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/black" />
+    </RelativeLayout>
+
+</com.youlongnet.lulu.ui.widget.TabLayout>

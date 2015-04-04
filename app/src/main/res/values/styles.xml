@@ -1,0 +1,64 @@
+<resources>
+
+    <!-- 不带样式的Theme.AppCompat显示overflow为白色 -->
+    <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
+
+        <!-- 状态栏颜色 -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!-- Toolbar颜色 -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- 返回键样式 -->
+        <item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>
+        <!-- 平滑切换 -->
+        <!--<item name="android:windowAnimationStyle">@style/Animation.Activity.smooth</item>-->
+        <!-- app背景 -->
+        <item name="android:windowBackground">@color/background_material_light</item>
+        <!-- App bar 上的标题与更多菜单中的文字颜色 -->
+        <!-- <item name="android:textColorPrimary">#fff</item> -->
+        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+    </style>
+
+    <style name="MenuTextStyle">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppTheme.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+    </style>
+
+    <!-- 700对比度 -->
+    <color name="colorPrimaryDark">#00796b</color>
+    <!-- 500对比度 -->
+    <color name="colorPrimary">#009688</color>
+    <color name="deepcolorPrimary">#50000000</color>
+    <color name="nav_color">#26a69a</color>
+
+    <style name="AppThemeCompat" parent="@style/AppTheme" />
+
+
+    <style name="Animation.Activity.smooth" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_open_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_open_exit</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_close_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_close_exit</item>
+        <item name="android:taskOpenEnterAnimation">@anim/activity_open_enter</item>
+        <item name="android:taskOpenExitAnimation">@anim/activity_open_exit</item>
+        <item name="android:taskCloseEnterAnimation">@anim/activity_close_enter</item>
+        <item name="android:taskCloseExitAnimation">@anim/activity_close_exit</item>
+        <item name="android:taskToFrontEnterAnimation">@anim/activity_open_enter</item>
+        <item name="android:taskToFrontExitAnimation">@anim/activity_open_exit</item>
+        <item name="android:taskToBackEnterAnimation">@anim/activity_close_enter</item>
+        <item name="android:taskToBackExitAnimation">@anim/activity_close_exit</item>
+    </style>
+
+
+    <style name="DialogTheme" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@drawable/pd_dialog_background</item>
+    </style>
+
+    <style name="AppTheme.TransparentActivity">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+</resources>

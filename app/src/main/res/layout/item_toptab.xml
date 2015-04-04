@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.youlongnet.lulu.ui.widget.AndroidSegmentedControlView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ascv="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ascv"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    ascv:ascv_defaultSelection="0"
+    ascv:ascv_items="@array/toptab_message"
+    ascv:ascv_selectedColor="@color/test_attr_selected_color"
+    ascv:ascv_selectedTextColor="@color/test_attr_selected_text_color"
+    ascv:ascv_unselectedColor="@color/test_attr_unselected_color"
+    ascv:ascv_unselectedTextColor="@color/test_attr_unselected_text_color" />

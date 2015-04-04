@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.kyleduo.switchbutton.switchbutton.SwitchButton
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/switchbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:animationVelocity="6"
+        app:insetBottom="16dp"
+        app:insetLeft="16dp"
+        app:insetRight="16dp"
+        app:insetTop="16dp"
+        app:measureFactor="1.4"
+        app:offDrawable="@drawable/md_back_off"
+        app:onDrawable="@drawable/md_back_on"
+        app:thumbDrawable="@drawable/md_thumb"
+        app:thumb_margin="-17dp" />
+
+    <Button
+        android:id="@+id/dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="对话框" />
+
+    <Button
+        android:id="@+id/loadingProgess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加载中进度圈圈" />
+
+    <Button
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="悬浮按钮" />
+
+    <include layout="@layout/item_toptab" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.software.shell.fab.ActionButton
+            xmlns:fab="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/fabbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="24dp"
+            android:layout_marginRight="24dp"
+            fab:image="@drawable/fab_bg_create_guild"
+            fab:type="MINI"
+            fab:image_size="41dp"
+            fab:shadow_radius="1dp" />
+    </RelativeLayout>
+
+</LinearLayout>
