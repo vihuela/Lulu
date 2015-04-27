@@ -2,19 +2,26 @@ package com.youlongnet.lulu.ui.frg;
 
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnDismissListener;
+import android.os.Environment;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.ProgressCallback;
 import com.kyleduo.switchbutton.switchbutton.SwitchButton;
 import com.software.shell.fab.ActionButton;
 import com.youlongnet.lulu.R;
 import com.youlongnet.lulu.ui.base.BaseFragment;
 import com.youlongnet.lulu.ui.widget.ProgressDrawble;
+
+import java.io.File;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -28,6 +35,10 @@ public class MyFragment extends BaseFragment {
     Button mBtnDialog;
     @InjectView(R.id.fabbtn)
     ActionButton fab;
+    @InjectView(R.id.upload)
+    Button upload;
+    @InjectView(R.id.pb)
+    ProgressBar pb;
 
     @Override
     public int setLayout() {
@@ -51,7 +62,7 @@ public class MyFragment extends BaseFragment {
 
     }
 
-    @OnClick({R.id.dialog, R.id.loadingProgess, R.id.fab})
+    @OnClick({R.id.dialog, R.id.loadingProgess, R.id.fab, R.id.upload})
     public void dialog(View v) {
         switch (v.getId()) {
             case R.id.dialog:
@@ -63,8 +74,44 @@ public class MyFragment extends BaseFragment {
             case R.id.fab:
                 showFab();
                 break;
+            case R.id.upload:
+                /*先下载文件*/
+                Ion.with(mContext)
+                        .load("http://b.hiphotos.baidu.com/image/w%3D230/sign=f84406c4554e9258a63481edac83d1d1/fd039245d688d43f76f37f527e1ed21b0ef43b3c.jpg")
+                        .write(new File(Environment.getExternalStorageDirectory(), "temp.jpg"))
+                        .setCallback(new FutureCallback<File>() {
+                            @Override
+                            public void onCompleted(Exception e, File file) {
+                                if (file != null) {
+                                    uploadTest(file);
+                                }
+                            }
+                        });
 
         }
+    }
+
+    private void uploadTest(File file) {
+        Ion.with(mContext)
+                .load("http://115.47.55.60/Upload.aspx")
+                .uploadProgressBar(pb)
+                .uploadProgressHandler(new ProgressCallback() {
+                    @Override
+                    public void onProgress(long downloaded, long total) {
+                        upload.setText("" + downloaded + " / " + total);
+                    }
+                })
+                .setMultipartFile("image", file)
+                .asString()
+                .setCallback(new FutureCallback<String>() {
+
+                    @Override
+                    public void onCompleted(Exception e, String arg1) {
+                        if (e == null) {
+                            upload.setText("上传完成");
+                        }
+                    }
+                });
     }
 
     /*悬浮按钮*/

@@ -93,13 +93,13 @@ public class GsonRequest<RESPONSE> extends Request<RESPONSE> {
     }
 
     final public void TraversalMap(Map<String, String> map) {
-
         StringBuilder builder = new StringBuilder();
-        builder.append("--------------REQUEST START------------" + "\n");
+        builder.append("\n" + "--------------REQUEST START------------" + "\n");
         builder.append("--URL：" + mUrl + "\n" + "--REQ：" + "\n");
-
-        for (Entry<String, String> entry : map.entrySet()) {
-            builder.append("     " + entry.getKey() + "," + entry.getValue() + "\n");
+        if (map != null) {
+            for (Entry<String, String> entry : map.entrySet()) {
+                builder.append("     " + entry.getKey() + "," + entry.getValue() + "\n");
+            }
         }
         Log.d(DEBUG, builder.toString());
     }

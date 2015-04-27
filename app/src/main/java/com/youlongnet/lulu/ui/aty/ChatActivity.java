@@ -10,7 +10,6 @@ import com.youlongnet.lulu.ui.base.BaseActivity;
 import com.youlongnet.lulu.ui.event.NotifyEvent;
 import com.youlongnet.lulu.ui.manager.TopManager;
 import com.youlongnet.lulu.ui.utils.BusProvider;
-import com.youlongnet.lulu.ui.utils.NotifyProvider;
 
 import butterknife.InjectView;
 import butterknife.OnClick;
@@ -40,6 +39,6 @@ public class ChatActivity extends BaseActivity {
 
     @OnClick(R.id.tv)
     public void onClick(View v) {
-        BusProvider.getInstance().post(new NotifyEvent("fuck", this, R.id.main));
+        BusProvider.getInstance().post(new NotifyEvent("notify", this, R.id.main));
     }
 }

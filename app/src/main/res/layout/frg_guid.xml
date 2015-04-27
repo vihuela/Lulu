@@ -1,21 +1,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/upload"
+        android:id="@+id/postString"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="上传文件" />
+        android:text="Post String" />
 
-    <ProgressBar
-        android:id="@+id/pb"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/postJsonString"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:indeterminateOnly="false"
-        android:orientation="horizontal"
-        android:progressBarStyle="@android:style/Widget.ProgressBar.Horizontal" />
+        android:text="Post Json String" />
+
+    <Button
+        android:id="@+id/get1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get1" />
+
+    <Button
+        android:id="@+id/get2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get2" />
+
+    <Button
+        android:id="@+id/example"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="example" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textColor="@color/blueviolet" />
+
 
 </LinearLayout>
