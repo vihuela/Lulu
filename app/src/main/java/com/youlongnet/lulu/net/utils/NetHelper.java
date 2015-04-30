@@ -3,7 +3,6 @@ package com.youlongnet.lulu.net.utils;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.StringDef;
 import android.text.TextUtils;
 
@@ -51,25 +50,27 @@ public abstract class NetHelper<REQUEST, RESPONSE> implements INetHelper<REQUEST
     public NetHelper() {
     }
 
+    //【所有请求需保证Handler与RequestQueue的唯一性】
     public NetHelper(Context ctx) {
         this.mContext = ctx;
-        this.mRequestQueue = VolleyUtils.getInstance(this.mContext);
+        this.mRequestQueue = VolleyUtils.getQueue(this.mContext);
         try {
             this.mRequestClass = (Class<REQUEST>) ((ParameterizedType) (NetHelper.this.getClass().getGenericSuperclass())).getActualTypeArguments()[0];
         } catch (Exception e) {
             /*REQUEST空，Post参数为String*/
         }
-        this.mHandler = new Handler() {
+        this.mHandler = VolleyUtils.getHandler();
+        /* this.mHandler = VolleyUtils.getHandler(new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                mRequestQueue.add(mGsonReq);
+                mRequestQueue.add(NetHelper.this.mGsonReq);
                 mHandler.sendEmptyMessageDelayed(0, mLoopTime);
             }
-        };
+        });*/
     }
 
     public static RequestQueue getRequestQueue(Context ctx) {
-        return VolleyUtils.getInstance(ctx);
+        return VolleyUtils.getQueue(ctx);
     }
 
     /*全局接口的通用参数配置*/

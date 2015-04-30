@@ -63,8 +63,8 @@ public class ContentManager extends Observable {
     }
 
     @OnPageChange(value = R.id.viewpager, callback = OnPageChange.Callback.PAGE_SELECTED)
-    void onPageStateChanged(int state) {
-        changeTopBottomUi(mViewpager.getCurrentItem());
+    void onPageStateChanged(int index) {
+        changeTopBottomUi(index);
     }
 
     @Override

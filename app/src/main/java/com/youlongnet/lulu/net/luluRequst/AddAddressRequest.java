@@ -11,7 +11,7 @@ import com.youlongnet.lulu.net.utils.INoProguard;
 public class AddAddressRequest extends Net<AddAddressRequest.RequestBean, String> {
 
     public AddAddressRequest(Context ctx) {
-        super(ctx, "http://106.186.112.164/add_order_address", "get");
+        super(ctx, "http://106.186.112.164/add_order_address", "post");
     }
 
     public static class RequestBean implements INoProguard {

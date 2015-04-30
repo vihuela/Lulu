@@ -54,6 +54,6 @@ public class MainActivity extends BaseActivity {
         super.onDestroy();
         ContentManager.getInstance().deleteObservers();
         BusProvider.getInstance().unregisters(ContentManager.getInstance(), TopManager.getInstance(), BottomManager.getInstance(), NotifyProvider.getInstance());
-        Runtime.getRuntime().exit(0);
+//        Runtime.getRuntime().exit(0);
     }
 }

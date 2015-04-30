@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.youlongnet.lulu.net.queue.Net;
+
 import butterknife.ButterKnife;
 
 /**
@@ -40,11 +42,31 @@ public abstract class BaseFragment extends Fragment {
         initData(mRootView);
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (isVisibleToUser)
+            onRealResume();
+        else
+            onRealPause();
+    }
+
+    protected void onRealResume() {
+    }
+
+    /**
+     * 覆写此方法修改默认网络分发规则【不可见时取消网络队列所有请求】
+     */
+    protected void onRealPause() {
+        if (mContext != null)
+            Net.with(mContext)
+                    .cancelAll();
+    }
+
     protected abstract int setLayout();
 
     protected abstract void initData(View view);
 
     protected void initWidget() {
     }
-
 }

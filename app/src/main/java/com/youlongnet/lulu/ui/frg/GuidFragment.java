@@ -38,19 +38,7 @@ public class GuidFragment extends BaseFragment {
 
     }
 
-  /*  @Override
-    public void onStop() {
-        super.onStop();
-//        Net.getRequestQueue(mContext).cancelAll("example");
-        Toast.makeText(mContext, "看不见了", Toast.LENGTH_SHORT).show();
-    }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Toast.makeText(mContext, "看不见了", Toast.LENGTH_SHORT).show();
-    }
-*/
     @OnClick({R.id.postString, R.id.postJsonString, R.id.get1, R.id.get2, R.id.example})
     public void onClick(View v) {
         switch (v.getId()) {
@@ -72,6 +60,11 @@ public class GuidFragment extends BaseFragment {
         }
     }
 
+    @Override
+    protected void onRealPause() {
+        super.onRealPause();
+    }
+
     private void example() {
         AddAddressRequest request = new AddAddressRequest(mContext);
         AddAddressRequest.RequestBean param = new AddAddressRequest.RequestBean();
@@ -86,9 +79,8 @@ public class GuidFragment extends BaseFragment {
         param.user_id = "54321";
         request.setParameter(param)
                 .setCache(true)
-                .setTag("example")
-                .setDebug(true);
-                /*.setLoop(2000);*/
+                .setDebug(true)
+                .setLoop(3000);
         request.setCallbacks(new NetHelper.NetCallback<String>() {
             @Override
             public void onCompleted(VolleyError e, String s) {
@@ -109,6 +101,7 @@ public class GuidFragment extends BaseFragment {
                 .setDebug(true)
                 .setCache(true)
                 .setSpliceParam(false)
+                .setLoop(3000)
                 .setCallback(new NetHelper.NetCallback<WeatherRequest.WeatherRes>() {
                     @Override
                     public void onCompleted(VolleyError e, WeatherRequest.WeatherRes weatherRes) {

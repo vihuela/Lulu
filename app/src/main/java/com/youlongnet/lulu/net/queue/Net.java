@@ -144,7 +144,7 @@ public class Net<REQUEST extends INoProguard, RESPONSE> extends NetHelper<REQUES
     }
 
     /**
-     * 不能取消循环请求
+     * 暂无法取消循环请求
      */
     public Net cancelAllWithTag(Object tag) {
         if (tag != null)
@@ -156,13 +156,13 @@ public class Net<REQUEST extends INoProguard, RESPONSE> extends NetHelper<REQUES
      * 取消网络队列中所有请求(包含循环请求)
      */
     public Net cancelAll() {
+        super.mHandler.removeCallbacksAndMessages(null);
         super.mRequestQueue.cancelAll(new RequestQueue.RequestFilter() {
             @Override
             public boolean apply(Request<?> request) {
                 return true;
             }
         });
-        super.mHandler.removeCallbacksAndMessages(null);
         return this;
     }
 
@@ -201,9 +201,18 @@ public class Net<REQUEST extends INoProguard, RESPONSE> extends NetHelper<REQUES
             gsonRequest.setTag(super.mRequestTag);
         super.mGsonReq = gsonRequest;
         super.mRequestQueue.add(super.mGsonReq);
-        if (super.mLoopTime != 0)
-            super.mHandler.sendEmptyMessageDelayed(0, super.mLoopTime);
+        if (super.mLoopTime != 0) {
+            super.mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Net.super.mRequestQueue.add(Net.super.mGsonReq);
+                    Net.super.mHandler.postDelayed(this, Net.super.mLoopTime);
+                }
+            }, super.mLoopTime);
+        }
+
     }
+
 
     /**
      * 适用Post参数为String(RESPONSE的约束来自外部)
@@ -241,8 +250,15 @@ public class Net<REQUEST extends INoProguard, RESPONSE> extends NetHelper<REQUES
             gsonRequest.setTag(super.mRequestTag);
         super.mGsonReq = gsonRequest;
         super.mRequestQueue.add(super.mGsonReq);
-        if (super.mLoopTime != 0)
-            super.mHandler.sendEmptyMessageDelayed(0, super.mLoopTime);
+        if (super.mLoopTime != 0) {
+            super.mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Net.super.mRequestQueue.add(Net.super.mGsonReq);
+                    Net.super.mHandler.postDelayed(this, Net.super.mLoopTime);
+                }
+            }, super.mLoopTime);
+        }
     }
 
     @Override

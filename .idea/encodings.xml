@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/youlongnet/lulu/net/luluRequst/AddAddressRequest.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/youlongnet/lulu/net/luluRequst/WeatherRequest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/youlongnet/lulu/net/utils/VolleyUtils.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/youlongnet/lulu/ui/aty/UserInfoActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/youlongnet/lulu/ui/base/BaseFragment.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/youlongnet/lulu/ui/frg/GuidFragment.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/youlongnet/lulu/ui/utils/RevealBackgroundView.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
